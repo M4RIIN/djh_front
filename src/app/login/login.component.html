@@ -1,0 +1,30 @@
+<mat-card appearance="outlined">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input formControlName="username" matInput placeholder="username" >
+                  </mat-form-field>
+
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput placeholder="password" type="password">
+                  </mat-form-field>
+            </p>
+            @if(error){
+                <p class="error">
+                    {{ error }}
+                </p>
+            }
+
+
+            <div class="button">
+                <button type="submit" mat-button>Login</button>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card> 

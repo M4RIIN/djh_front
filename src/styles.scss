@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap');
+
+
+
+body:not(.dark-mode-preloading) {
+    transition: all 0.3s linear;
+  }
+  
+  body.dark-mode {
+    background-color: #141625;
+    color: #f1f2f6;
+  }
+  
+  body.light-mode {
+    background-color: #f1f2f6;
+    color: #2f3542;
+  }
+  
+  
+  mat-drawer-container:not(.dark-mode-preloading) {
+    transition: all 0.3s linear;
+  }
+  
+  mat-drawer-container.dark-mode {
+    background-color: #141625;
+    color: #f1f2f6;
+  }
+  
+  mat-drawer-container.light-mode {
+    background-color: #f1f2f6;
+    color: #2f3542;
+  }

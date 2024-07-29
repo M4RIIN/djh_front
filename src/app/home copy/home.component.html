@@ -1,0 +1,15 @@
+<div class="ml-6 mr-6 pt-28 pb-2 lg:ml-96 lg:mr-96 md:ml-12 md:mr-12">
+    <!-- <app-menu-header ></app-menu-header > -->
+  
+      <div id="card">
+
+      </div>
+      <div>
+        <app-session-card [session]="a" *ngFor="let a of sessions"></app-session-card>
+      </div>
+      <div *ngIf="sessions?.length == 0" class=" h-60 lg:h-80">
+        <img src="assets/illustration-empty.svg" class="h-full m-auto"/>
+        <h2 class="text-center font-spartan font-bold text-3xl pt-4">Il n'y a rien ici</h2>
+        <h3 class="font-spartan text-xl text-center pt-3">Attends qu'un hôte de chez toi ouvre une session!</h3>
+      </div>
+  </div>

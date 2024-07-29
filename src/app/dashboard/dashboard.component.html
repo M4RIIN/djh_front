@@ -1,0 +1,163 @@
+<div id="sidenav" *ngIf="authService.isAuthenticatedUser"  [ngClass]="{
+    'dark-mode': (darkMode$ | async),
+    'light-mode': !(darkMode$ | async)
+  }" class="w-full z-20 fixed h-16 md:h-20 lg:h-full lg:w-28 lg:rounded-tr-2xl lg:rounded-br-2xl top-0 left-0 drop-shadow-md z-50">
+    <div class="w-16 md:w-20 md:h-full lg:w-full lg:h-28 h-full rounded-r-2xl bg-primary-purple relative">
+      <div class=" w-full h-1/2 rounded-tl-2xl bg-pr-purple-light rounded-br-2xl bottom-0 absolute">
+
+      </div>
+      <img src="assets/logo.svg"  class="h-full w-full absolute z-10 p-4" />
+    </div>
+    <div class="h-full w-0.1 bg-purple-grey right-20 absolute top-0 lg:w-full lg:h-0.1 lg:bottom-20 lg:top-auto lg:left-0"></div>
+    <div class="w-28 h-full absolute top-0 right-24 flex lg:w-full lg:h-28 lg:bottom-24 lg:left-0 lg:top-auto lg:flex-col">
+      <mat-icon (click)="logOut()" class="cursor-pointer text-4xl w-16 h-16 m-auto grey mr-3 md:mr-auto md:mb-3"  aria-hidden="false" aria-label="Example home icon">power_settings_new</mat-icon>
+      <img (click)="onToggle()" [src]="(darkMode$ | async)?'assets/icon-sun.svg':'assets/icon-moon.svg'" class="cursor-pointer w-7 h-7 m-auto" />
+    </div>
+    <div class="h-full w-20  right-0 absolute top-0 flex lg:h-20 lg:w-full lg:top-auto lg:bottom-0">
+      <img src="assets/image-avatar.jpg" class="rounded-full max-h-10 w-10 m-auto lg:max-h-14 lg:w-14"/>
+    </div>
+  </div>
+
+  <mat-drawer-container class="bg-transparent h-screen" [ngClass]="{
+    'dark-mode': (darkMode$ | async),
+    'light-mode': !(darkMode$ | async)
+  }">
+  <mat-drawer #drawer class="h-screen z-30 md:pl-32 rounded-lg md:pt-2 md:w-3/4  p-6 pt-20 " mode="over">
+    <div class="overflow-x-hidden pr-2">
+
+      <div class="flex w-full" (click)="closeDrawer()">
+        <img src="assets/icon-arrow-left.svg" class="w-4 m-auto flex-initial" />
+        <p class="flex-1 text-left font-spartan font-bold pl-6">Retour</p>
+      </div>
+      <div>
+        <p class="font-spartan font-bold text-3xl mt-5">Nouvelle session</p>
+      </div>
+
+      <div>
+        <p class="font-spartan font-bold mt-5 text-primary-purple">Création de session</p>
+      </div>
+
+      <div class="mt-5 w-full ">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Nom de la session</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div>
+
+      <!-- <div class="w-full flex flex-row ">
+        <mat-form-field class="max-w-1/2 m-1"  appearance="fill">
+          <mat-label>City</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+        <mat-form-field class="max-w-1/2 m-1"  appearance="fill">
+          <mat-label>Code postal</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div> -->
+
+      <div class="w-full ">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Sujet</mat-label>
+          <textarea  [(ngModel)]="sujet" class="h-4 " matInput></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- <div>
+        <p class="font-spartan font-bold mt-5 text-primary-purple">Bill to</p>
+      </div>
+      <div class="w-full mt-5">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Client's Name</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div>
+      <div class="w-full ">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Client's Email</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div>
+      <div class="w-full ">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Street Address</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div>
+
+
+      <div class="w-full flex flex-row ">
+        <mat-form-field class="max-w-1/2 m-1"  appearance="fill">
+          <mat-label>City</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+        <mat-form-field class="max-w-1/2 m-1"  appearance="fill">
+          <mat-label>Code postal</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div> -->
+
+      <!-- <div> -->
+        <!-- <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+      <!-- </div> -->
+
+      <!-- <div>
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Choose an option</mat-label>
+          <mat-select>
+            <mat-option value="option1">Option 1</mat-option>
+            <mat-option value="option2">Option 2</mat-option>
+            <mat-option value="option3">Option 3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="w-full ">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Project Description</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div>
+      <div>
+        <p class="font-spartan font-bold mt-5 text-primary-purple">Item List</p>
+      </div>
+      <div class="mt-5 w-full ">
+        <mat-form-field class="w-full"  appearance="fill">
+          <mat-label>Item Name</mat-label>
+          <input class="h-4 " matInput />
+        </mat-form-field>
+      </div>
+      <div class="w-full flex flex-row">
+        <mat-form-field class="w-1/5 m-1"  appearance="fill">
+          <mat-label>Qty.</mat-label>
+          <input type="number" class="h-4 " matInput />
+        </mat-form-field>
+        <mat-form-field class="w-3/10 m-1"  appearance="fill">
+          <mat-label>Price</mat-label>
+          <input type="number" class="h-4 " matInput />
+        </mat-form-field>
+        <mat-form-field class="w-3/10 m-1"  appearance="fill">
+          <mat-label>Price</mat-label>
+          <input type="number" class="h-4 " matInput disabled="true" />
+        </mat-form-field>
+        <div class="w-1/5 m-1 flex">
+          <mat-icon class="m-auto text-gray-600 cursor-pointer">delete</mat-icon>
+        </div>
+      </div>
+      <div class="w-full flex flex-row">
+        <div class="flex-1 m-1 bg-slate-100 flex rounded-3xl h-8 cursor-pointer">
+          <p class="m-auto text-indigo-500">+ Add New Item</p>
+        </div>
+      </div> -->
+      <div class="w-full flex flex-row">
+        <div class="flex-1 m-1 bg-slate-100 flex rounded-3xl h-8 cursor-pointer">
+          <p class="m-auto text-indigo-500" (click)="createSession()">Créer la session</p>
+        </div>
+      </div>
+    </div>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+</mat-drawer-container>

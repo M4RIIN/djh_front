@@ -1,0 +1,25 @@
+#sidenav:not(.dark-mode-preloading) {
+    transition: background-color 0.3s linear;
+  }
+  
+  #sidenav.dark-mode{
+    background-color: #1E2139;
+  }
+  
+  #sidenav.light-mode{
+    background-color: #373B53;
+  }
+  
+  
+  .grey{
+    color: rgb(133,139,178);
+  }
+
+::ng-deep mat-icon{
+    width: 35px !important;
+    height: 35px !important;
+}
+
+mat-drawer{
+     width: 80%;
+}

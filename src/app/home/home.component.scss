@@ -1,0 +1,11 @@
+#sidenav:not(.dark-mode-preloading) {
+    transition: background-color 0.3s linear;
+  }
+  
+  #sidenav.dark-mode{
+    background-color: #1E2139;
+  }
+  
+  #sidenav.light-mode{
+    background-color: #373B53;
+  }

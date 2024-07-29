@@ -1,0 +1,47 @@
+#card.dark-mode{
+    background-color: #1E2139;
+  }
+  
+  #card.light-mode{
+    background-color: white;
+  }
+  
+  .paid{
+    background-color: #33D69F;
+    color : #33D69F;
+  }
+  
+  .pending{
+    background-color: #FF8F00;
+    color : #FF8F00;
+  }
+  
+  .draft-ligth{
+    background-color: black;
+    color : black;
+  }
+  
+  .draft-dark{
+    background-color: white;
+    color : white;
+  }
+  
+  .paid-text{
+    color : #33D69F;
+  }
+  
+  .pending-text{
+    color : #FF8F00;
+  }
+  
+  .draft-text-dark{
+    color : white;
+  }
+  
+  .draft-text-ligth{
+    color : black;
+  }
+  
+  #status{
+    transform: translate(-50%, -50%);
+  }

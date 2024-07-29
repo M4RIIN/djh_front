@@ -1,0 +1,41 @@
+<div class="w-full h-11 flex lg:h-14 mb-8">
+    <div class="flex-1">
+      <div>
+        <h2 id="title" [ngClass]="{
+          'dark-mode': (darkMode$ | async),
+          'light-mode': !(darkMode$ | async)
+        }" class="font-spartan font-bold text-lg lg:text-3xl ">Sessions</h2>
+      </div>
+      <div>
+        <p id="subtitle" class="font-spartan text-classic-grey font-normal text-sm lg:text-lg md:hidden lg:hidden">{{sessions?.length}} session</p>
+        <p id="subtitle" class="font-spartan text-classic-grey font-normal text-sm lg:text-lg hidden md:inline-block lg:inline-block">Il y a  {{sessions?.length}} sessions au total</p>
+      </div>
+    </div>
+    <div (click)="rotate()" #dropDownButton [matMenuTriggerFor]="menu"  class="cursor-pointer flex-initial w-20 md:w-52 lg:w-48 flex flex-row">
+      <p id="filter" [ngClass]="{
+        'dark-mode': (darkMode$ | async),
+        'light-mode': !(darkMode$ | async)
+      }" class="font-spartan font-bold text-sm lg:text-lg m-auto md:hidden">Filtrer</p>
+      <p id="filter" [ngClass]="{
+        'dark-mode': (darkMode$ | async),
+        'light-mode': !(darkMode$ | async)
+      }" class="font-spartan font-bold text-sm lg:text-lg m-auto hidden  md:inline-block">Filtrer par statut</p>
+      <img [@rotatedState]='state'  src="assets/icon-arrow-down.svg" class="w-4  m-auto" />
+    </div>
+    <mat-menu  (close)="rotate()" #menu="matMenu" [class]="'lg:w-48 h-32 w-32 ' + ((darkMode$ | async)?'dark-mode-menu':'light-mode-menu')">
+      <section class="m-4 flex flex-col">
+        <mat-checkbox (change)="setFilter('Draft')" [checked]="isChecked('Draft')"  class="flex-1 text-spartan text-bold" formControlName="draft">Draft</mat-checkbox>
+        <mat-checkbox (change)="setFilter('Pending')" [checked]="isChecked('Pending')" class="flex-1" formControlName="pending">Pending</mat-checkbox>
+        <mat-checkbox (change)="setFilter('Paid')" [checked]="isChecked('Paid')"  class="flex-1" formControlName="paid">Paid</mat-checkbox>
+      </section>
+    </mat-menu>
+    <div class="flex-initial flex-row flex w-24 bg-primary-purple md:w-40 lg:w-40 rounded-full">
+      <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white ml-2 mt-auto mb-auto flex">
+        <img src="assets/icon-plus.svg" class="m-auto"/>
+      </div>
+      <div (click)="openMenuAdd()" class="flex-1 flex cursor-pointer ">
+        <p class="text-spartan text-white ml-2 mt-auto mb-auto font-bold md:hidden">Nouvelle</p>
+        <p class="text-spartan text-white ml-2 mt-auto mb-auto font-bold hidden  md:inline-block ">Nouvelle session</p>
+      </div>
+    </div>
+  </div>

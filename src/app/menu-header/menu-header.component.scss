@@ -1,0 +1,53 @@
+#title:not(.dark-mode-preloading) {
+    transition: color 0.3s linear;
+  }
+  
+  #title.dark-mode{
+    color: white;
+  }
+  
+  #title.light-mode{
+    color: black;
+  }
+  
+  #subtitle:not(.dark-mode-preloading) {
+    transition: color 0.3s linear;
+  }
+  
+  #subtitle.dark-mode{
+    color: whitesmoke;
+  }
+  
+  #subtitle.light-mode{
+    color: #888EB0;
+  }
+  
+  #filter:not(.dark-mode-preloading) {
+    transition: color 0.3s linear;
+  }
+  
+  #filter.dark-mode{
+    color: white;
+  }
+  
+  #filter.light-mode{
+    color: black;
+  }
+  
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #7C5DFA !important;
+  }
+  
+  ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #7C5DFA !important;
+  }
+  
+  ::ng-deep .light-mode-menu {
+  
+    background-color: white!important;
+  }
+  
+  ::ng-deep .dark-mode-menu {
+  
+    background-color: #252945!important;
+  }
